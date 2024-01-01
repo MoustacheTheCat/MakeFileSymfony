@@ -44,29 +44,7 @@ install-dep: ## Install dependencies
     @cat "la suite se trouve dans README" 
 
 
-     make rebuild 
-        
 
-
-rebuild: ## Rebuild the database
-    symfony console d:d:d -f
-    symfony console d:d:c
-    symfony console d:s:u -f
-    symfony console d:f:l -n
-
-
-    make start-s
-
-        
-  
-start-s: ## Start Symfony server and asset compilation
-    symfony server:start -d
-    php bin/console asset-map:compile
-    php bin/console sass:build
-    php bin/console sass:build --watch
-
-
-        
 
 
 Modifier le code dans les différents fichier avant de lancer la commande make start-s
@@ -127,3 +105,36 @@ Modifier le fichier style.css en style .scss, puis changer le nom dans le fichie
 
     @import '../../vendor/twbs/bootstrap/scss/bootstrap';
     @import "vendor/tom-select";
+
+
+
+Une fois les etpas franchis lancer 
+
+
+    make start-s
+
+
+
+start-s: ## Start Symfony server and asset compilation
+    symfony server:start -d
+    php bin/console asset-map:compile
+    php bin/console sass:build
+    php bin/console sass:build --watch
+
+
+     make rebuild 
+        
+
+
+rebuild: ## Rebuild the database
+    symfony console d:d:d -f
+    symfony console d:d:c
+    symfony console d:s:u -f
+    symfony console d:f:l -n
+
+
+    make start-s
+
+        
+  
+
