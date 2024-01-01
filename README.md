@@ -9,6 +9,8 @@ Liste des commandes :
 
     make init-s project_name=${projet_name} user=${db_user_name} password=${db_password, nullable} db_name={name_db}
 
+
+il faut bien sur modifier -> serverVersion=10.11.2-MariaDB par serverVersion=8.0.32
     
 
 
