@@ -6,7 +6,10 @@ MekeFile lancement de projet symfony
 Liste des commandes :
 
 
+
     make init-s project_name=${projet_name} user=${db_user_name} password=${db_password, nullable} db_name={name_db}
+
+    
 
 
     init-s: ## Init projet
@@ -20,9 +23,13 @@ Liste des commandes :
       		echo 'DATABASE_URL="mysql://$(user):$(password)@127.0.0.1:3306/$(db_name)?serverVersion=10.11.2-MariaDB&charset=utf8mb4"' >> .env; \
       	fi && \
       	symfony console d:d:c
+
+       
        
 
     make install-dep
+
+    
        
 
     install-dep: ## Install dependencies
@@ -37,17 +44,26 @@ Liste des commandes :
         @cat "la suite se trouve dans README" 
 
 
+        
+
+
     rebuild: ## Rebuild the database
         symfony console d:d:d -f
         symfony console d:d:c
         symfony console d:s:u -f
         symfony console d:f:l -n
+
+
+        
   
     start-s: ## Start Symfony server and asset compilation
         symfony server:start -d
         php bin/console asset-map:compile
         php bin/console sass:build
         php bin/console sass:build --watch
+
+
+        
 
 
 Modifier le code dans les différents fichier avant de lancer la commande make start-s
